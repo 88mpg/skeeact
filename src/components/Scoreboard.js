@@ -4,8 +4,8 @@ class Scoreboard extends React.Component {
   render() {
     return (
       <section className="scoreboard">
-  			<span className="score">SCORE: <span className="score--number">0</span></span>
-  			<span className="count">BALLS LEFT: <span className="count--number">9</span></span>
+  			<span className="score">SCORE: {this.props.score}</span>
+  			<span className="count">BALLS LEFT: {this.props.balls}</span>
   		</section>
     )
   }
