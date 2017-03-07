@@ -3,7 +3,7 @@ import React from 'react';
 class Undo extends React.Component {
   render() {
     return (
-      <a href="#" onClick={this.props.undo}>Undo</a>
+      <button onClick={this.props.undo}>Undo</button>
     )
   }
 }

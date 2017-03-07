@@ -2,12 +2,12 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React from 'react';
+import initReactFastclick from 'react-fastclick';
 import Scoreboard from './Scoreboard';
 import PlayingField from './PlayingField';
-import RemainingBalls from './RemainingBalls';
+import ScoreLog from './ScoreLog';
 import GameOver from './GameOver';
 import Undo from './Undo';
-import initReactFastclick from 'react-fastclick';
 
 initReactFastclick();
 
@@ -31,11 +31,13 @@ class AppComponent extends React.Component {
   undo() {
     const {score, balls, log} = this.state;
     const lastScore = log.pop();
-    this.setState({
-      balls: balls + 1,
-      score: score - lastScore,
-      log: log
-    })
+    if (balls < 9) {
+      this.setState({
+        balls: balls + 1,
+        score: score - lastScore,
+        log
+      })
+    }
   }
 
   updateScore(amount) {
@@ -66,7 +68,7 @@ class AppComponent extends React.Component {
   }
 
   render() {
-	  const {score, balls} = this.state;
+	  const {score, balls, log} = this.state;
 
     if (balls < 1) {
       return (
@@ -85,8 +87,11 @@ class AppComponent extends React.Component {
           balls={balls}
         />
         <PlayingField updateScore={this.updateScore} />
-        <RemainingBalls balls={balls} />
-        <Undo undo={this.undo} />
+        <ScoreLog
+          balls={balls}
+          log={log}
+        />
+        { balls < 9 && <Undo undo={this.undo} /> }
       </div>
     )
   }
