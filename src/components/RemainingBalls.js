@@ -18,6 +18,22 @@ class RemainingBalls extends React.Component {
       </div>
     )
   }
+  // render() {
+  //   const remaining = new Array(balls).map((b, i) =>
+  //
+  //   let remaining;
+  //   for (let i; i < balls; i++) {
+  //     remaining.push(<ellipse key={`remaining-ball-${i}`} className="ball-count" ry="34.5" rx="34.5" cx="662.589693" cy="39.5"/>);
+  //   }
+  //
+  //     return (
+  //       <div className="remaining-balls">
+  //         <svg id="remainingBalls" viewBox="0 0 702 82">
+  //            {remaining}
+  //         </svg>
+  //       </div>
+  //     )
+  //   }
 }
 
 export default RemainingBalls;

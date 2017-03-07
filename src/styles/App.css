@@ -32,6 +32,7 @@ body {
 	padding: 20px;
 	border: 14px solid black;
 	border-bottom: 0;
+	border-top: 0;
 }
 
 p {
@@ -49,13 +50,14 @@ p {
 	stroke-width: 14px;
 }
 
-[data-score] {
+.skeehole {
 	cursor: pointer;
 	fill: cornsilk;
+	/*transition: fill .1s ease-in-out;*/
 }
 
-[data-score]:active,
-[data-score]:hover {
+.skeehole:active,
+.skeehole:hover {
 	fill:tomato;
 }
 
